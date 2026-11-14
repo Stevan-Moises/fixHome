@@ -3,6 +3,7 @@
     'use strict'; // Modo estrito: evita erros silenciosos
 
     // ---------- Configurações (altere aqui) ----------
+    // Número no formato internacional: 55 + DDD + número, só dígitos
     const numeroWhatsApp = '5582981744522';
     const nomeEmpresa = 'FixHome';
 
@@ -38,37 +39,51 @@
 
     // Função responsável por formatar o texto do pedido que será enviado ao WhatsApp.
     // Usa *asteriscos* (negrito do WhatsApp) e emojis para deixar a leitura organizada.
+    // Os emojis estão em código Unicode (\u{...}) para não dependerem da codificação do arquivo.
     function gerarMensagemWhatsApp() {
+        const emoji = {
+            ferramenta: '\u{1F527}',
+            aceno: '\u{1F44B}',
+            prancheta: '\u{1F4CB}',
+            check: '\u2705',
+            pino: '\u{1F4CD}',
+            casa: '\u{1F3E0}',
+            porta: '\u{1F6AA}',
+            bairro: '\u{1F3D8}\uFE0F',
+            relogio: '\u23F0',
+            bloco: '\u{1F4DD}',
+            maos: '\u{1F64F}'
+        };
         const servicos = obterServicosSelecionados();
         const nome = limparTexto(campoNome.value);
         const bairro = limparTexto(campoBairro.value);
         const endereco = limparTexto(campoEndereco.value);
         const complemento = limparTexto(campoComplemento.value);
         const detalhes = limparTexto(campoDetalhes.value);
-        const separador = '━━━━━━━━━━━━━━━';
+        const separador = '\u2501'.repeat(15);
 
         // Cada bloco é uma parte da mensagem; no final eles são unidos com uma linha em branco
         const blocos = [];
 
-        blocos.push('🔧 *PEDIDO DE ORÇAMENTO*\n' + separador);
-        blocos.push('Olá, ' + nomeEmpresa + '! 👋' + (nome ? '\nMeu nome é *' + nome + '*.' : ''));
+        blocos.push(emoji.ferramenta + ' *PEDIDO DE ORÇAMENTO*\n' + separador);
+        blocos.push('Olá, ' + nomeEmpresa + '! ' + emoji.aceno + (nome ? '\nMeu nome é *' + nome + '*.' : ''));
 
         // Títulos dos serviços, iguais aos que aparecem nos cartões da página
-        blocos.push('📋 *Serviços solicitados*\n' + servicos.map(function (servico) {
-            return '✅ ' + servico;
+        blocos.push(emoji.prancheta + ' *Serviços solicitados*\n' + servicos.map(function (servico) {
+            return emoji.check + ' ' + servico;
         }).join('\n'));
 
         // Bloco do local: só inclui as linhas que o cliente preencheu
         const local = [];
-        if (endereco) local.push('🏠 Endereço: ' + endereco);
-        if (complemento) local.push('🚪 Complemento: ' + complemento);
-        if (bairro) local.push('🏘️ Bairro: ' + bairro);
-        if (local.length) blocos.push('📍 *Local do atendimento*\n' + local.join('\n'));
+        if (endereco) local.push(emoji.casa + ' Endereço: ' + endereco);
+        if (complemento) local.push(emoji.porta + ' Complemento: ' + complemento);
+        if (bairro) local.push(emoji.bairro + ' Bairro: ' + bairro);
+        if (local.length) blocos.push(emoji.pino + ' *Local do atendimento*\n' + local.join('\n'));
 
-        blocos.push('⏰ *Prazo desejado*\n' + campoUrgencia.value);
-        if (detalhes) blocos.push('📝 *Detalhes do problema*\n' + detalhes);
+        blocos.push(emoji.relogio + ' *Prazo desejado*\n' + campoUrgencia.value);
+        if (detalhes) blocos.push(emoji.bloco + ' *Detalhes do problema*\n' + detalhes);
 
-        blocos.push(separador + '\nAguardo o retorno com o orçamento. Obrigado! 🙏');
+        blocos.push(separador + '\nAguardo o retorno com o orçamento. Obrigado! ' + emoji.maos);
 
         return blocos.join('\n\n');
     }
