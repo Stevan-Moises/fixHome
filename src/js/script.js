@@ -88,9 +88,11 @@
         return blocos.join('\n\n');
     }
 
-    // Cria a URL oficial do WhatsApp com a mensagem já codificada
+    // Cria o link do WhatsApp com a mensagem já codificada.
+    // Usamos api.whatsapp.com/send em vez de wa.me: no computador, o wa.me costuma
+    // trocar os emojis por "�" (problema conhecido), e este formato evita isso.
     function criarLinkWhatsApp(mensagem) {
-        return 'https://wa.me/' + numeroWhatsApp + '?text=' + encodeURIComponent(mensagem);
+        return 'https://api.whatsapp.com/send?phone=' + numeroWhatsApp + '&text=' + encodeURIComponent(mensagem);
     }
 
     // Atualiza o texto abaixo do botão conforme o usuário marca os serviços
