@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- SEO: título -->
+    <title>FixHome | Reparos Residenciais com Orçamento Rápido no WhatsApp</title>
+    <!-- SEO: descrição que aparece no Google -->
+    <meta name="description"
+        content="Torneira pingando, chuveiro queimado, porta emperrada? A FixHome resolve pequenos reparos na sua casa com hora marcada e garantia. Peça orçamento no WhatsApp.">
+    <meta name="theme-color" content="#0B3A6F">
+
+    <!-- Open Graph: pré-visualização ao compartilhar no WhatsApp e redes sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FixHome | Reparos Residenciais com Orçamento Rápido">
+    <meta property="og:description"
+        content="Pequenos reparos resolvidos com hora marcada e garantia. Peça seu orçamento em minutos pelo WhatsApp.">
+    <meta property="og:image" content="./src/image/preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="FixHome Reparos Residenciais">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Fontes: Barlow Condensed (títulos, estilo de placa) e Barlow (texto) -->
+    <link rel="icon" type="image/png" href="./src/image/favicon.png">
+    <link rel="apple-touch-icon" href="./src/image/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800&family=Barlow:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <!-- "defer" carrega o JS sem travar a renderização da página -->
+    <script src="./src/js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- Link de acessibilidade: permite pular direto para o conteúdo -->
+    <a class="link-pular" href="#conteudo-principal">Ir para o conteúdo</a>
+
+    <!-- ========== CABEÇALHO ========== -->
+    <header class="cabecalho">
+        <div class="container cabecalho-conteudo">
+            <a class="logotipo" href="#topo">
+                <!-- Troque imagens/logo.png pela logo do cliente (recortada sem margem, fundo transparente) -->
+                <img class="logotipo-imagem" src="./src/image/logo.png" alt="" width="80" height="60">
+                <span class="logotipo-nome">Fix<em>Home</em></span>
+            </a>
+            <nav aria-label="Menu principal" class="menu-principal">
+                <a href="#servicos">Serviços</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#duvidas">Dúvidas</a>
+            </nav>
+            <a class="botao-cabecalho" href="#servicos">Pedir orçamento</a>
+        </div>
+    </header>
+
+    <main id="conteudo-principal">
+
+        <!-- ========== HERO: promessa principal + CTA ========== -->
+        <section class="hero" id="topo">
+            <div class="container hero-conteudo">
+                <div class="hero-texto">
+                    <!-- Único <h1> da página: foca na dor do cliente -->
+                    <h1>Aquele reparo que você adia há semanas? Resolvido em até 48 horas.</h1>
+                    <p class="hero-subtitulo">Eletricista, encanador e pequenos reparos em um só profissional de
+                        confiança. Diga o que precisa e receba o orçamento no WhatsApp, sem visita para "ver depois".
+                    </p>
+                    <a class="botao botao-principal" href="#servicos">Escolher meus serviços (grátis)</a>
+                    <p class="hero-aviso">Sem compromisso. Resposta média em 10 minutos, de segunda a sábado.</p>
+                </div>
+
+                <!-- Ordem de serviço de exemplo: os itens são marcados como "Feito" ao carregar a página -->
+                <aside class="ordem-servico ordem-demo" aria-label="Exemplo de ordem de serviço concluída">
+                    <h3>Ordem de serviço</h3>
+                    <ul>
+                        <li>Torneira da cozinha</li>
+                        <li>Chuveiro sem esquentar</li>
+                        <li>Porta do quarto emperrada</li>
+                    </ul>
+                    <p class="rotulo-ordem">Três pendências, uma visita só.</p>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Faixa decorada como uma fita métrica (identidade visual da marca) -->
+        <div class="fita-metrica" aria-hidden="true"></div>
+
+        <!-- ========== SERVIÇOS + FORMULÁRIO (funcionalidade principal) ========== -->
+        <section class="secao" id="servicos">
+            <div class="container">
+                <h2>Marque o que precisa e peça o orçamento</h2>
+                <p class="secao-introducao">São 3 passos rápidos. No final, o WhatsApp abre com tudo preenchido: é só
+                    apertar enviar.</p>
+
+                <div class="area-orcamento">
+                    <form id="formulario-orcamento" novalidate>
+                        <!-- fieldset agrupa as opções e ajuda leitores de tela -->
+                        <h3 class="titulo-etapa"><span>1</span> Toque nos serviços que você precisa</h3>
+                        <fieldset class="grupo-servicos">
+                            <legend class="texto-oculto">Serviços disponíveis</legend>
+
+                            <!-- Cada cartão é um <label> com checkbox escondido: clicar no cartão marca a opção -->
+                            <label class="cartao-servico">
+                                <input type="checkbox" name="servico" value="Hidráulica">
+                                <article>
+                                    <h3>Hidráulica</h3>
+                                    <p>Torneiras, chuveiros, vazamentos, descargas e sifões.</p>
+                                </article>
+                            </label>
+
+                            <label class="cartao-servico">
+                                <input type="checkbox" name="servico" value="Elétrica">
+                                <article>
+                                    <h3>Elétrica</h3>
+                                    <p>Tomadas, interruptores, lustres, ventiladores e disjuntores.</p>
+                                </article>
+                            </label>
+
+                            <label class="cartao-servico">
+                                <input type="checkbox" name="servico" value="Montagem e fixação">
+                                <article>
+                                    <h3>Montagem e fixação</h3>
+                                    <p>Móveis, prateleiras, cortinas, suportes de TV e quadros.</p>
+                                </article>
+                            </label>
+
+                            <label class="cartao-servico">
+                                <input type="checkbox" name="servico" value="Portas e fechaduras">
+                                <article>
+                                    <h3>Portas e fechaduras</h3>
+                                    <p>Portas emperradas, fechaduras, dobradiças e puxadores.</p>
+                                </article>
+                            </label>
+
+                            <label class="cartao-servico">
+                                <input type="checkbox" name="servico" value="Pintura e retoques">
+                                <article>
+                                    <h3>Pintura e retoques</h3>
+                                    <p>Retoques, mofo, pequenas infiltrações e rejuntes.</p>
+                                </article>
+                            </label>
+
+                            <label class="cartao-servico">
+                                <input type="checkbox" name="servico" value="Outro reparo">
+                                <article>
+                                    <h3>Outro reparo</h3>
+                                    <p>Não achou o seu caso? Descreva abaixo que avaliamos.</p>
+                                </article>
+                            </label>
+                        </fieldset>
+
+                        <!-- Mensagem de erro (só aparece quando o JS identificar um problema) -->
+                        <p class="mensagem-erro" id="mensagem-erro" role="alert" hidden></p>
+
+                        <h3 class="titulo-etapa"><span>2</span> Conte onde e para quando</h3>
+                        <p class="nota-obrigatorio">Todos os campos são obrigatórios, exceto o complemento e os detalhes
+                            do problema.</p>
+                        <div class="campos">
+                            <div class="campo">
+                                <label for="campo-nome">Seu nome</label>
+                                <input type="text" id="campo-nome" name="nome" required autocomplete="given-name"
+                                    placeholder="Ex.: Maria">
+                            </div>
+                            <div class="campo">
+                                <label for="campo-urgencia">Quando precisa?</label>
+                                <select id="campo-urgencia" name="urgencia" required>
+                                    <option value="" selected disabled>Selecione uma opção</option>
+                                    <option value="Hoje (urgente)">Hoje (urgente)</option>
+                                    <option value="Em até 48 horas">Em até 48 horas</option>
+                                    <option value="Nesta semana">Nesta semana</option>
+                                    <option value="Só quero saber o valor">Só quero saber o valor</option>
+                                </select>
+                            </div>
+                            <!-- Endereço ocupa a linha inteira por ser o texto mais longo -->
+                            <div class="campo campo-largo">
+                                <label for="campo-endereco">Endereço (rua e número)</label>
+                                <input type="text" id="campo-endereco" name="endereco" required
+                                    autocomplete="street-address" placeholder="Ex.: Rua das Flores, 123">
+                            </div>
+                            <div class="campo">
+                                <label for="campo-bairro">Bairro</label>
+                                <input type="text" id="campo-bairro" name="bairro" required
+                                    autocomplete="address-level3" placeholder="Ex.: Centro">
+                            </div>
+                            <div class="campo">
+                                <label for="campo-complemento">Complemento (opcional)</label>
+                                <input type="text" id="campo-complemento" name="complemento"
+                                    placeholder="Ex.: Apto 302, bloco B">
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label for="campo-detalhes">Detalhes do problema (opcional)</label>
+                            <textarea id="campo-detalhes" name="detalhes" rows="3"
+                                placeholder="Ex.: A torneira da cozinha pinga e o registro está duro."></textarea>
+                        </div>
+
+                        <h3 class="titulo-etapa"><span>3</span> Envie pelo WhatsApp</h3>
+                        <button type="submit" class="botao botao-whatsapp" id="botao-enviar">Escolha um serviço para
+                            continuar</button>
+                        <p class="texto-apoio" id="resumo-selecao" aria-live="polite">Nenhum serviço selecionado.</p>
+                    </form>
+
+                    <!-- Ordem de serviço ao vivo: o JS preenche conforme o cliente marca as opções -->
+                    <aside class="ordem-servico" aria-live="polite">
+                        <h3>Sua ordem de serviço</h3>
+                        <ul id="lista-ordem"></ul>
+                        <p class="rotulo-ordem" id="detalhes-ordem"></p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== COMO FUNCIONA (sequência real: aqui a numeração faz sentido) ========== -->
+        <section class="secao secao-cinza" id="como-funciona">
+            <div class="container">
+                <h2>Do pedido ao reparo em 3 passos</h2>
+                <ol class="passos">
+                    <li>
+                        <h3>Você envia o pedido</h3>
+                        <p>Marque os serviços e fale com a gente no WhatsApp. Foto do problema ajuda muito.</p>
+                    </li>
+                    <li>
+                        <h3>Receba o valor combinado</h3>
+                        <p>Passamos o orçamento antes de qualquer visita. Sem surpresa na hora de pagar.</p>
+                    </li>
+                    <li>
+                        <h3>Reparo feito e garantido</h3>
+                        <p>Hora marcada, local limpo no final e 90 dias de garantia no serviço.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ========== GARANTIAS E PROVA SOCIAL ========== -->
+        <section class="secao" id="garantias">
+            <div class="container">
+                <h2>Por que as famílias da região confiam na FixHome</h2>
+                <ul class="selos">
+                    <li><strong>90 dias</strong> de garantia em todo serviço</li>
+                    <li><strong>Hora marcada</strong> e aviso quando o técnico sair</li>
+                    <li><strong>Preço fechado</strong> antes de começar</li>
+                </ul>
+
+            </div>
+        </section>
+
+        <!-- ========== DEPOIMENTOS (troque pelos relatos reais dos seus clientes) ========== -->
+        <section class="secao secao-cinza" id="depoimentos">
+            <div class="container">
+                <h2>Quem já contratou, recomenda</h2>
+                <!-- Faixa rolável: cada depoimento "encaixa" ao rolar; as setas são controladas pelo script.js -->
+                <div class="depoimentos" id="faixa-depoimentos" tabindex="0" role="region"
+                    aria-label="Depoimentos de clientes">
+                    <blockquote class="depoimento">
+                        <p class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                        <p>Chamei de manhã por causa de um vazamento na pia e à tarde já estava tudo certo. Preço igual
+                            ao combinado.</p>
+                        <footer>Carla M., moradora de apartamento</footer>
+                    </blockquote>
+                    <blockquote class="depoimento">
+                        <p class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                        <p>Resolveram cinco pendências da casa em uma única visita. Economizei tempo e dor de cabeça.
+                        </p>
+                        <footer>Roberto S., proprietário</footer>
+                    </blockquote>
+                    <blockquote class="depoimento">
+                        <p class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                        <p>O chuveiro voltou a esquentar no mesmo dia. Chegaram no horário e deixaram tudo limpo.</p>
+                        <footer>Fernanda L., moradora</footer>
+                    </blockquote>
+                    <blockquote class="depoimento">
+                        <p class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                        <p>Montaram o guarda-roupa e fixaram as prateleiras sem um risco na parede. Capricho de verdade.
+                        </p>
+                        <footer>Marcos A., recém-mudado</footer>
+                    </blockquote>
+                    <blockquote class="depoimento">
+                        <p class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                        <p>A porta do quarto vivia emperrada. Receberam a foto, passaram o valor e resolveram em meia
+                            hora.</p>
+                        <footer>Juliana P., moradora de casa</footer>
+                    </blockquote>
+                    <blockquote class="depoimento">
+                        <p class="estrelas" role="img" aria-label="Avaliação: 5 de 5 estrelas">★★★★★</p>
+                        <p>Avisaram quando o técnico saiu e explicaram o que foi feito. Senti confiança para chamar de
+                            novo.</p>
+                        <footer>Teresa B., aposentada</footer>
+                    </blockquote>
+                </div>
+                <div class="controles-carrossel">
+                    <button type="button" class="seta-carrossel" id="seta-anterior"
+                        aria-label="Ver depoimento anterior">&larr;</button>
+                    <button type="button" class="seta-carrossel" id="seta-proxima"
+                        aria-label="Ver próximo depoimento">&rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== QUEBRA DE OBJEÇÕES (FAQ) ========== -->
+        <section class="secao" id="duvidas">
+            <div class="container">
+                <h2>Dúvidas frequentes</h2>
+                <!-- <details> nativo: abre e fecha sem precisar de JavaScript -->
+                <details>
+                    <summary>O orçamento tem custo?</summary>
+                    <p>Não. O orçamento pelo WhatsApp é gratuito e sem compromisso.</p>
+                </details>
+                <details>
+                    <summary>E se o serviço for pequeno demais?</summary>
+                    <p>Pequenos reparos são justamente a nossa especialidade. Nada é pequeno demais para incomodar.</p>
+                </details>
+                <details>
+                    <summary>Preciso estar em casa?</summary>
+                    <p>Combinamos o melhor horário com você. Se preferir, o serviço pode ser feito com um responsável
+                        presente.</p>
+                </details>
+                <details>
+                    <summary>Preciso comprar o material?</summary>
+                    <p>No orçamento já informamos o que será necessário. Você pode comprar ou pedir que a gente leve;
+                        nos dois casos, o valor é combinado antes.</p>
+                </details>
+                <details>
+                    <summary>Quais formas de pagamento vocês aceitam?</summary>
+                    <p>Aceitamos Pix, cartão e dinheiro. O pagamento é dividido em duas partes: 50% do valor para
+                        começarmos o serviço e os outros 50% depois que o serviço for concluído.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== RODAPÉ ========== -->
+    <footer class="rodape">
+        <div class="container rodape-grade">
+            <div class="rodape-marca">
+                <a class="logotipo" href="#topo">
+                    <!-- Troque imagens/logo.png pela logo do cliente (recortada sem margem, fundo transparente) -->
+                    <img class="logotipo-imagem" src="./src/image/logo.png" alt="" width="90" height="68">
+                    <span class="logotipo-nome">Fix<em>Home</em></span>
+                </a>
+                <p>Pequenos reparos residenciais com hora marcada, preço combinado antes e garantia no serviço.</p>
+            </div>
+
+            <nav class="rodape-coluna" aria-label="Links rápidos">
+                <h2 class="rodape-titulo">Navegue</h2>
+                <a href="#servicos">Pedir orçamento</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#duvidas">Dúvidas frequentes</a>
+            </nav>
+
+            <div class="rodape-coluna">
+                <h2 class="rodape-titulo">Atendimento</h2>
+                <p>Segunda a sábado, das 8h às 18h</p>
+                <p>Atendemos sua cidade e região</p>
+            </div>
+        </div>
+        <div class="container rodape-base">
+            <p>&copy; 2026 FixHome Reparos Residenciais. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante: sempre visível, leva ao WhatsApp (o link é completado pelo JS) -->
+    <a class="botao-flutuante link-whatsapp" id="botao-flutuante" href="https://wa.me/5582981744522" target="_blank"
+        rel="noopener noreferrer" aria-label="Falar com a FixHome no WhatsApp">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+            <path fill="currentColor"
+                d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.200.1.300 0 .5l-.3.400-.4.400c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.4.100.6-.1l.8-1c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z" />
+        </svg>
+        <span>Orçamento</span>
+    </a>
+</body>
+
+</html>
